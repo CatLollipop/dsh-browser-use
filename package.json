@@ -1,0 +1,77 @@
+{
+  "name": "dsh-browser-use",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Audited browser sessions for DeepSeek Harness: allowlists, approvals, redaction, and replay. Page content cannot change policy.",
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "browser",
+    "automation"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "README.md",
+    "SECURITY.md",
+    "implementation-notes.md",
+    "approval.js",
+    "assets/chrome.svg",
+    "assets/edge.svg",
+    "browsers.js",
+    "audit.js",
+    "cdp.js",
+    "client.js",
+    "config.js",
+    "cordis.patch.yml",
+    "driver.js",
+    "engine.js",
+    "errors.js",
+    "fixtures.js",
+    "icon.svg",
+    "index.js",
+    "locator.js",
+    "manifest.js",
+    "observer.js",
+    "policy.js",
+    "redact.js",
+    "retry.js",
+    "rpc.js",
+    "session.js",
+    "store.js",
+    "webbridge.js",
+    "webbridge-driver.js",
+    "zip.js",
+    "locale/*.json",
+    "skills/**"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2"
+  }
+}
